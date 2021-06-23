@@ -1,0 +1,44 @@
+<label>Server Name</label>
+<!-- input below is not two way binding -->
+<!-- <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"
+> -->
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName"
+>
+<!-- <p>{{ serverName }}</p> -->
+<button
+    class="btn btn-primary"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()"
+>
+    Add Server
+</button>
+<!-- string interpolation below -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+<!-- <p>{{ serverCreation }}</p> -->
+<p *ngIf="serverCreated">Server was created, servername is {{ serverName }}</p>
+<!-- using ngIf/else with ng-template -->
+<!-- <p *ngIf="serverCreated; else noServer">Server was created, servername is {{ serverName }}</p>
+<ng-template #noServer>
+    <p>
+        No server was created!
+    </p>
+</ng-template> -->
+<app-server></app-server>
+<app-server></app-server>
+
+<!-- property binding uses square brackets -->
+<!-- string binding uses double curly brackets -->
+<!-- event binding uses parenthesis -->
+<!-- two way binding uses square brackets and parenthesis, triggers on event and updates serverName automatically -->
+
+<!-- use string interpolation for text and use property binding to change some property, don't mix the two -->
+<!-- use # for local reference -->
+
+<!-- use * for structural directives, changes the structure of our DOM - adds or doesn't add element -->
+<!-- attribute directives - change element they are placed on -->
